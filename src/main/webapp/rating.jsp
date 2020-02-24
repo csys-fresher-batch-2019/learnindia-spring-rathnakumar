@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="font-awesome.min.css">
+<style>
+input {
+  border: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  opacity: 0;
+}
+label {
+  position: relative;
+  float: right;
+  color: #C8C8C8;
+}
+label:before {
+  margin: 5px;
+  content: "\f005";
+  font-family: FontAwesome;
+  display: inline-block;
+  font-size: 1.5em;
+  color: #ccc;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+input:checked ~ label:before {
+  color: #FFC107;
+}
+label:hover ~ label:before {
+  color: #ffdb70;
+}
+label:hover:before {
+  color: #FFC107;
+}
+</style>
+</head>
+<body>
+
+<input type="checkbox" id="st1" value="1" />
+<label for="st1"></label>
+<input type="checkbox" id="st1" value="1" />
+<label for="st1"></label>
+<input type="checkbox" id="st1" value="1" />
+<label for="st1"></label>
+<input type="checkbox" id="st1" value="1" />
+<label for="st1"></label>
+<input type="checkbox" id="st1" value="1" />
+<label for="st1"></label>
+
+</body>
+</html>
