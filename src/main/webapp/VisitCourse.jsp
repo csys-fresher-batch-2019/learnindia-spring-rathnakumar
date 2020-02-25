@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList"%> 
 <%@page import="javax.servlet.http.HttpServlet"%>
 <%@page import = "com.educator.learnfast.models.UserInfo" %>
+<%@page import= "com.educator.learnfast.models.ContentInfo" %>
 <html>
 <head>
 <style>
@@ -39,11 +40,10 @@ color:white;
 </head>
 <body>
 <div class = "heading"><br><h1 style = "margin:20px">LearnIndia!</h1></div>
-<%ArrayList<String> s = (ArrayList<String>)request.getAttribute("contentvid");
-for(String sin:s){
-	String val = sin.trim();
+<%ArrayList<ContentInfo> s = (ArrayList<ContentInfo>)request.getAttribute("content");
+for(ContentInfo sin:s){
 	%>
-<h2><a href = "WatchVideo.jsp?week=<%= val%>"><%= sin%></a></h2>
+<h2>chapter<%= sin.getChapterNo()%>:<a href = "WatchVideo.jsp?chapter=<%= sin.getChapterNo()%>&courseId=<%= sin.getCourseId()%>"><%= sin.getCourseContent()%></a></h2>
 <%}
 UserInfo ui = new UserInfo();
 ui = (UserInfo)session.getAttribute("obj");

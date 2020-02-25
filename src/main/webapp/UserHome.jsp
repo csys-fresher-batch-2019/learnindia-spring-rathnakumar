@@ -47,8 +47,8 @@ background-color:rgb(240, 240, 245);
 <%UserInfo in = new UserInfo();
 in =(UserInfo)session.getAttribute("obj");
 %>
-<a href ="http://localhost:8090/learnindia-web/SearchCourses.jsp">ExploreCourses</a>
-<a href = "http://localhost:8090/learnindia-web/CourseList?id=<%= in.getUserId()%>">YourCourseList</a>
+<a href ="SearchCourses.jsp">ExploreCourses</a>
+<a href = "CourseList?id=<%= in.getUserId()%>">YourCourseList</a>
 <a href = "CourseHistoryServlet?id=<%= in.getUserId()%>" >ViewCourseHistory</a>
 <div class="name">
 <b>Welcome <%= in.getUserName()%></b>

@@ -17,6 +17,7 @@ result = met.displayCourses(obj);
 %>
 <html>
 <head>
+<meta charset="UTF-8">
 <style>
 div.heading{
 background-color:rgb(48,60,95);
@@ -25,31 +26,41 @@ color:rgb(242,242,242);
 text-align:center;
 }
 div.gallery {
-  margin: 100px;
-  border: 2px solid rgb(153, 214, 255);
+  margin: 80px;
+  padding: 0.1px;
+  border: 2px solid rgb(230, 230, 230);
   float: left;
-  width: 240px;
+  width: 270px;
+  height: 350px;
+  shadow: 10px 10px 5px grey;
 }
 
 div.gallery:hover {
   border: 2px solid rgb(48,60,95);
+  opacity:0.5;
 }
 
 div.gallery img {
   width: 100%;
-  height: 30%;
+  height: 50%;
 }
 
-div.desc {
-	color:green;
+div.title {
+	color:black;
+	font-family: serif;
+	font-size: 20px;
   padding: 5px;
   text-align: center;
 }
+div.det{
+	color:brack;
+	font-size:16px;
+}
 body{
-background-color:rgb(245, 230, 255);
+background-color:white;
 }
 div.price{
-color:rgb(255, 153, 0);
+color:black;
 }
 </style>
 </head>
@@ -58,13 +69,13 @@ color:rgb(255, 153, 0);
 <%
 for(CourseInfo title:result){%>
 <div class="gallery">
-  <a  href="CourseContent?courseId=<%= title.getCourseId()%>">
+  <a  href="ContentInfoServlet?courseId=<%= title.getCourseId()%>">
     <img src="assets/images/<%= title.getCourseName() %>.jpg" alt="<%= title.getCourseName() %>" width="600" height="400">
-  </a>
-  <div class="desc"><strong>Course Name: <%= title.getCourseName() %><br>
-  Instructor Name: <%= title.getInstructorName() %><br>
-  Duration of Course: <%= title.getDurationOfCourse() %>weeks<br></div>
-  <div class = "price">Price: <%= title.getPrice()%></strong></div>
+  </a><br><br>
+  <div class="title"><strong><%= title.getCourseName() %></strong><br><br></div>
+ <div class="det">Instructor Name: <%= title.getInstructorName() %><br><br>
+  Duration: <%= title.getDurationOfCourse() %>weeks<br></div>
+ <br><strong><div class = "price">Price: <%= title.getPrice()%></strong></div>
 </div>
 <%} %>
 </html>

@@ -62,7 +62,7 @@ UserInfo uind = new UserInfo();
 uind.setUserId(-1);
 session.setAttribute("obj", uind);
 %>
-<a href ="http://localhost:8090/learnindia-web/SearchCourses.jsp">ExploreCourses</a>
+<a href ="SearchCourses.jsp">ExploreCourses</a>
 <div class="name">
 <a href = "Signup.jsp">Signup</a>
 <a href = "Login.jsp">Login</a></div>

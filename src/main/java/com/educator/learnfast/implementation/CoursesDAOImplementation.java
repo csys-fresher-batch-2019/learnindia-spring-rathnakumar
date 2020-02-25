@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.educator.learnfast.DAO.CoursesDAO;
 import com.educator.learnfast.Exception.DbException;
 import com.educator.learnfast.Exception.InfoMessages;
+import com.educator.learnfast.models.ContentInfo;
 import com.educator.learnfast.models.CourseInfo;
 import com.educator.learnfast.util.Logger;
 import com.educator.learnfast.util.TestConnection;
@@ -157,5 +158,31 @@ public class CoursesDAOImplementation implements CoursesDAO {
 				return true;
 			else
 				return false;
+		}	
+		
+		public ArrayList<ContentInfo> fetchCourseContent(int courseId) throws Exception {
+			String sql = "select course_id,course_content,chapter_no from content_info where course_id = ?";
+			System.out.println(courseId);
+			ArrayList<ContentInfo> list = new ArrayList<ContentInfo>();
+			try(Connection con = TestConnection.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);){
+				ps.setInt(1, courseId);
+				try(ResultSet rs = ps.executeQuery();){
+					while(rs.next()) {
+						ContentInfo ci = new ContentInfo();
+						ci.setChapterNo(rs.getInt("chapter_no"));
+						ci.setCourseContent(rs.getString("course_content"));
+						ci.setCourseId(rs.getInt("course_id"));
+						list.add(ci);
+					}
+				}
+			}catch(DbException e) {
+				e.printStackTrace();
+				throw new DbException(InfoMessages.COURSECONTENT);
+			}catch(Exception e) {
+				e.printStackTrace();
+				throw new DbException(InfoMessages.CONNECTION);
+			}
+			return list;
 		}	
 }
