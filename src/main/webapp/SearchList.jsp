@@ -67,10 +67,11 @@ color:black;
 <body>
 <div class = "heading"><br><h1 style = "margin:20px">LearnIndia!</h1></div>
 <%
-for(CourseInfo title:result){%>
+for(CourseInfo title:result){
+System.out.println(title.getCourseName());%>
 <div class="gallery">
   <a  href="ContentInfoServlet?courseId=<%= title.getCourseId()%>">
-    <img src="assets/images/<%= title.getCourseName() %>.jpg" alt="<%= title.getCourseName() %>" width="600" height="400">
+    <img src="assets/images/<%= title.getCourseId() %>.jpg" alt="<%= title.getCourseName() %>" width="600" height="400">
   </a><br><br>
   <div class="title"><strong><%= title.getCourseName() %></strong><br><br></div>
  <div class="det">Instructor Name: <%= title.getInstructorName() %><br><br>

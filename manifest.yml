@@ -1,0 +1,7 @@
+---
+applications:
+- name: api.learnindia.in
+  buildpack: java_buildpack
+  memory: 1G
+  instances: 1
+  path: target/learnfast-0.0.1-SNAPSHOT.war

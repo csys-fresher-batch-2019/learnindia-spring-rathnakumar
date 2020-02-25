@@ -98,11 +98,15 @@ public class CoursesDAOImplementation implements CoursesDAO {
 				sb1.append("where course_category = '"+course.getCourseCategory()+"' and instructor_name like '%"+course.getInstructorName()+"%'");
 			sql = sb1.toString();
 			System.out.println(sql);
+			System.out.println("hello");
 			ArrayList<CourseInfo> out = new ArrayList<CourseInfo>();
 			 try(Connection con = TestConnection.getConnection();
 					Statement stmt = con.createStatement();){
+				 System.out.println("1");
 					try (ResultSet rs=stmt.executeQuery(sql);){
+						System.out.println("2");
 						while(rs.next()) {
+							System.out.println("3");
 							CourseInfo obj = new CourseInfo();
 							obj.setCourseId(rs.getInt("course_id"));
 							obj.setCourseName(rs.getString("course_name"));
@@ -111,6 +115,7 @@ public class CoursesDAOImplementation implements CoursesDAO {
 							obj.setCourseCategory(rs.getString("course_category"));
 							obj.setPrice(rs.getInt("price"));
 							out.add(obj);
+							System.out.println("hi");
 						}
 					}}catch(DbException e) {
 						throw new DbException(InfoMessages.SEARCHCOURSE);
