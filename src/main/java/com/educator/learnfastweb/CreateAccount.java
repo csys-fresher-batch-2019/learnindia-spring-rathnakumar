@@ -52,6 +52,7 @@ public class CreateAccount extends HttpServlet {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				response.sendRedirect("Signup.jsp");
 			}
 		if(result==true) {
 			response.sendRedirect("index.jsp");

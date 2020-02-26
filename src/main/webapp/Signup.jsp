@@ -30,12 +30,9 @@ color:red;
 </style>
  <script> 
           
-            // Function to check Whether both passwords 
-            // is same or not. 
             function checkPassword(form) { 
                 password1 = form.password.value; 
                 password2 = form.confirmpass.value; 
-                // If Not same return False.     
                 if (password1 != password2) { 
                     alert ("\nPassword did not match: Please try again...");
                     return false; 
@@ -50,15 +47,15 @@ color:red;
 <center><h2>Create Account</h2>
 <form action = "CreateAccount" method = "post" onSubmit = "return checkPassword(this)">
 <b>Enter Your Name</b><br>
- <input type = "text" name = "first_name" placeholder = "First Name" required autofoucs/>
+ <input type = "text" name = "first_name" placeholder = "First Name" required/>
 <input type = "text" name = "last_name" placeholder  = "Last Name">
 <br><br>
 <b>Enter Email</b><br>
 <input type = "email" name = "email" required>
 <br><br>
 <b>Enter Password</b><br>
-<input type = "password" name = "password" required min = "8">
-<br><br>
+<input type = "password" name = "password" required pattern=".{8,}" title = "Must contain atleast 8 characters"><p style="color:red">(*password must contain minimum 8 characters)</p>
+<br>
 <b>Enter Confirm Password</b><br>
 <input type = "password" name = "confirmpass" placeholder = "Re-enter the password" required>
 <br><br>
