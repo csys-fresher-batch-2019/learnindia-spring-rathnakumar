@@ -53,6 +53,10 @@ in =(UserInfo)session.getAttribute("obj");
 <div class="name">
 <b>Welcome <%= in.getUserName()%></b>
 <a href = "Logout" >LogOut</a></div>
+<%String msg = (String)request.getParameter("msg");
+if(msg!=null){%>
+<p style = "color:red"><%= msg %></p>
+<%} %>
 </div>
 </body>
 </html>
